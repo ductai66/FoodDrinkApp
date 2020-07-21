@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.InfoProduct.ThongtinActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+        android:text="Chi tiết sản phẩm"
+        android:textColor="#4c84ff"
+        android:textSize="18sp"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_above="@+id/layout_bottom"
+        android:layout_below="@+id/toolbar_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/info_image"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="225dp">
+                <ImageView
+                    android:id="@+id/image_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/layout"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_below="@+id/info_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/info_name"
+                    android:text="Name Product"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/detailproduct"
+                    android:text="Detail Product"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_expandable"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_margin="16dp"
+                android:layout_below="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TableRow android:paddingLeft="45dp"
+                        android:padding="?android:listPreferredItemPaddingLeft">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:text="Nhiệt độ"/>
+                        <ImageView
+                            android:id="@+id/temp_row"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_expand_less"/>
+                    </TableRow>
+                    <RadioGroup
+                        android:id="@+id/temp_group"
+                        android:background="@drawable/shape_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:orientation="vertical" >
+                        <RadioButton
+                            android:id="@+id/tempCold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Lạnh"
+                            android:checked="true"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/tempHot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:checked="false"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Nóng"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+                    <TableRow android:paddingLeft="45dp"
+                        android:padding="?android:listPreferredItemPaddingLeft">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Kích thước"/>
+
+                        <ImageView
+                            android:id="@+id/size_row"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_expand_less" />
+                    </TableRow>
+                    <RadioGroup
+                        android:id="@+id/size_group"
+                        android:background="@drawable/shape_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:orientation="vertical" >
+                        <RadioButton
+                            android:id="@+id/sizeM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:checked="true"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Size M"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/sizeL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Size L (+6000đ)"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+                    <TableRow android:paddingLeft="45dp"
+                        android:padding="?android:listPreferredItemPaddingLeft">
+                        <TextView
+                            android:layout_weight="8"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Lượng đường"/>
+                        <ImageView
+                            android:id="@+id/sugar_row"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:src="@drawable/ic_expand_less"/>
+                    </TableRow>
+                    <RadioGroup
+                        android:id="@+id/sugar_group"
+                        android:background="@drawable/shape_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:orientation="vertical" >
+                        <RadioButton
+                            android:id="@+id/sugar100"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="100% đường"
+                            android:textSize="16sp" />
+
+                        <RadioButton
+                            android:id="@+id/sugar70"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:text="70% đường"
+                            android:textAlignment="textStart"
+                            android:textSize="16sp" />
+
+                        <RadioButton
+                            android:id="@+id/sugar50"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:checked="true"
+                            android:text="50% đường"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/sugar30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="30% đường"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/nosugar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Không đường"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+                    <TableRow android:paddingLeft="45dp"
+                        android:padding="?android:listPreferredItemPaddingLeft">
+                        <TextView
+                            android:layout_weight="8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:text="Lượng đá"/>
+                        <ImageView
+                            android:id="@+id/cold_row"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_expand_less"/>
+                    </TableRow>
+                    <RadioGroup
+                        android:id="@+id/cold_group"
+                        android:background="@drawable/shape_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:orientation="vertical" >
+                        <RadioButton
+                            android:id="@+id/cold100"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:checked="true"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="100% đá"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/cold70"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="70% đá"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/cold50"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:checked="true"
+                            android:text="50% đá"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/cold30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="30% đá"
+                            android:textSize="16sp" />
+                        <RadioButton
+                            android:id="@+id/nocold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layoutDirection="rtl"
+                            android:textAlignment="textStart"
+                            android:layout_gravity="start"
+                            android:text="Không đá"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+                </TableLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ic_remove"
+                android:src="@drawable/ic_remove"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/soluong"
+                android:text="1"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/ic_add"
+                android:src="@drawable/ic_add"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="3"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/tongtien"
+                android:paddingRight="32dp"
+                android:paddingLeft="32dp"
+                android:background="@drawable/shape_button"
+                android:text="30000VNĐ"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
